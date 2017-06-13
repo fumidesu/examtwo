@@ -46,3 +46,4 @@ gem 'twitter-bootstrap-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'rmagick'
+gem 'rails_12factor', group: :production
