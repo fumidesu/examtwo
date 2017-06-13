@@ -1,0 +1,23 @@
+<%= form_for(@foto) do |f| %>
+  <% if @foto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @foto.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+      <% @foto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'form-control' %>
+  <br>
+  <%= f.label :content %>
+  <%= f.text_field :content, class: 'form-control' %>
+  <br>
+  <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
+<% end %>
+
+<%= link_to "Slowgram一覧画面にもどる", fotos_path %>

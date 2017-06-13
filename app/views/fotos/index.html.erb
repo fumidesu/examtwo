@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+    <p><%= notice %></p>
+    <h1>Slowgram一覧</h1>
+      <%= link_to "Slowgramを作成する", new_foto_path, class: 'btn btn-default' %>
+    <% @fotos.each do |foto| %>
+    <div class="row">
+      <h4><strong><%= foto.title %></strong></h4>
+      <p><%= foto.content %></p>
+      <%= link_to "編集", edit_foto_path(foto.id), class: 'btn btn-default btn-sm btn-success' %>
+      <%= link_to "削除", foto_path(foto.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
+    </div>
+    <% end %>
+  </div>
+</div>
