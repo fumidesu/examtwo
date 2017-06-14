@@ -13,6 +13,7 @@ class FotosController < ApplicationController
     @foto = Foto.new(fotos_params)
     if @foto.save
       redirect_to fotos_path, notice: "Slowgramを作成しました！"
+      NoticeMailer.sendmail_foto(@foto).deliver
     else
       render 'new'
     end
