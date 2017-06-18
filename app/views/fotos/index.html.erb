@@ -7,6 +7,18 @@
     <div class="row">
       <h4><strong><%= foto.title %></strong></h4>
       <p><%= foto.content %></p>
+      <!-- 追加箇所 開始 -->
+      <p>
+        <strong>Image:</strong>
+      
+        <% if foto.image? %>
+          <div class="picture">
+            <%= image_tag (foto.image) %>
+          </div>
+          <% end %>
+
+      </p>
+<!-- 追加箇所 終了 -->
       <%= link_to "編集", edit_foto_path(foto.id), class: 'btn btn-default btn-sm btn-success' %>
       <%= link_to "削除", foto_path(foto.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-default btn-sm btn btn-danger' %>
     </div>

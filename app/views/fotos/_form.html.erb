@@ -17,6 +17,29 @@
   <%= f.label :content %>
   <%= f.text_field :content, class: 'form-control' %>
   <br>
+  <!-- ここから追加 -->
+ <div class="field">
+   <div class="field">
+    <% if @foto.image? %>
+      <div class="picture">
+        <%= image_tag @foto.image.url %>
+      </div>
+    <% end %><br>
+
+   <%= f.label :image %><br>
+   <%= f.file_field :image %>
+   <%= f.hidden_field :image_cache %>
+ </div>
+ <div class="field">
+   <!-- 既存レコード(DBに保存されている)かつ、画像が存在する場合 -->
+   <% if @foto.persisted? && @foto.image? %>
+     <label>
+       <%= f.check_box :remove_image %>
+       画像を削除
+     </label>
+   <% end %>
+ </div>
+ <!-- ここまで追加 -->
   <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 <% end %>
 

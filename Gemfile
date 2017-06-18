@@ -58,3 +58,6 @@ gem 'rmagick'
 gem 'rails_12factor', group: :production
 gem 'rails_admin'
 gem 'cancan'
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'mini_magick'

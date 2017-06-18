@@ -11,6 +11,7 @@ class FotosController < ApplicationController
 
   def create
     @foto = Foto.new(fotos_params)
+    @foto.user_id = current_user.id
     if @foto.save
       redirect_to fotos_path, notice: "Slowgramを作成しました！"
       NoticeMailer.sendmail_foto(@foto).deliver
@@ -37,7 +38,7 @@ class FotosController < ApplicationController
 
   private
       def fotos_params
-        params.require(:foto).permit(:title, :content)
+        params.require(:foto).permit(:title, :content, :image, :image_cache, :remove_image)
       end
       def set_foto
            @foto = Foto.find(params[:id])
